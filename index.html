@@ -3,212 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C# and .NET Learning Hub</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        nav {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: space-around;
-        }
-
-        nav li {
-            margin: 0 10px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        nav a:hover {
-            background-color: #555;
-        }
-
-        /* Tab Styles */
-        .tab-container {
-            display: flex;
-            border-bottom: 1px solid #ddd;
-            margin: 20px;
-        }
-
-        .tab {
-            padding: 10px 15px;
-            cursor: pointer;
-            border: 1px solid transparent;
-            border-bottom: none;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            background-color: #eee;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-
-        .tab.active {
-            background-color: #fff;
-            border-color: #ddd;
-        }
-
-        .tab-content {
-            padding: 20px;
-            margin: 0 20px 20px;
-            background-color: white;
-            border: 1px solid #ddd;
-            border-top: none;
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
-             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .tab-content > div { /* Hide all content divs by default */
-            display: none;
-        }
-
-        .tab-content > div.active { /* Show only the active content div */
-            display: block;
-            animation: fadeIn 0.5s ease-in-out; /* Fade-in animation */
-        }
-
-        /* Fade-in Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav li {
-                margin: 10px 0;
-            }
-            .tab-container {
-                flex-direction: column; /* Stack tabs vertically on smaller screens */
-            }
-            .tab {
-                border-radius: 5px 5px 0 0; /* Round only top corners on small screens */
-                border-bottom: 1px solid #ddd; /* Add bottom border to stacked tabs */
-                width: 100%; /* Make tabs full width */
-                text-align: center;
-            }
-            .tab:last-child { /* Remove bottom border from the last tab */
-                border-bottom: none;
-                border-radius: 0 0 5px 5px;
-            }
-        }
-    </style>
+    <meta name="description" content="Learn C# programming with interactive tutorials and resources">
+    <title>Learn C# Programming</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
 </head>
 <body>
-
-    <nav>
-        <ul>
-            <li><a href="#">C# and .NET Learning Hub</a></li>
-        </ul>
-    </nav>
-
-    <div class="tab-container">
-        <div class="tab active" onclick="openTab('introduction')">Introduction</div>
-        <div class="tab" onclick="openTab('basics')">C# Basics</div>
-        <div class="tab" onclick="openTab('oop')">Object-Oriented Programming</div>
-        <div class="tab" onclick="openTab('dotnet')">.NET Framework/.NET</div>
-        <div class="tab" onclick="openTab('advanced')">Advanced Topics</div>
-    </div>
-
-    <div class="tab-content">
-        <div id="introduction" class="active">
-            <h2>Introduction to C# and .NET</h2>
-            <p>C# is a modern, object-oriented programming language developed by Microsoft. It's widely used for building various applications, including web, desktop, mobile, and game development. The .NET framework (and its cross-platform successor, .NET Core/.NET) provides the runtime environment and libraries for C# applications.</p>
-        </div>
-
-        <div id="basics">
-            <h2>C# Basics</h2>
-            <ul>
-                <li>Variables and Data Types</li>
-                <li>Operators</li>
-                <li>Control Flow</li>
-                <li>Methods and Functions</li>
-                <li>Arrays and Collections</li>
+    <header>
+        <nav>
+            <div class="logo">C# Academy</div>
+            <ul class="nav-links">
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-        </div>
+        </nav>
+    </header>
 
-        <div id="oop">
-            <h2>Object-Oriented Programming (OOP)</h2>
+    <main>
+        <section id="intro" class="intro-section">
+            <h1>Welcome to C# Academy</h1>
+            <p>Your journey to mastering C# programming starts here. Explore tutorials, challenges, and more!</p>
+            <button onclick="scrollToSection('features')">Get Started</button>
+        </section>
+
+        <section id="features" class="features-section">
+            <h2>Features</h2>
+            <div class="features-container">
+                <div class="feature">
+                    <h3>Interactive Tutorials</h3>
+                    <p>Step-by-step guides with hands-on coding exercises.</p>
+                </div>
+                <div class="feature">
+                    <h3>Coding Challenges</h3>
+                    <p>Test your skills with real-world problems and solutions.</p>
+                </div>
+                <div class="feature">
+                    <h3>Community Support</h3>
+                    <p>Join our forums and interact with other learners.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="resources-section">
+            <h2>Resources</h2>
             <ul>
-                <li>Classes and Objects</li>
-                <li>Inheritance</li>
-                <li>Polymorphism</li>
-                <li>Encapsulation</li>
-                <li>Abstraction</li>
-                <li>Interfaces</li>
+                <li><a href="#">Official C# Documentation</a></li>
+                <li><a href="#">C# Cheat Sheets</a></li>
+                <li><a href="#">Sample Projects</a></li>
             </ul>
-        </div>
+        </section>
 
-        <div id="dotnet">
-            <h2>.NET Framework/.NET</h2>
-            <ul>
-                <li>Common Language Runtime (CLR)</li>
-                <li>.NET Class Library (BCL)</li>
-                <li>Namespaces</li>
-                <li>ASP.NET</li>
-                <li>Entity Framework</li>
-            </ul>
-        </div>
+        <section id="contact" class="contact-section">
+            <h2>Contact Us</h2>
+            <p>Have questions? Reach out to us!</p>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
-        <div id="advanced">
-            <h2>Advanced Topics</h2>
-            <ul>
-                <li>Generics</li>
-                <li>Delegates and Events</li>
-                <li>LINQ</li>
-                <li>Asynchronous Programming</li>
-                <li>Exception Handling</li>
-                <li>Unit Testing</li>
-            </ul>
-        </div>
-    </div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-    <script>
-        function openTab(tabName) {
-            let i;
-            let tabs = document.getElementsByClassName("tab");
-            let tabContents = document.getElementsByClassName("tab-content")[0].children; // Get direct children of tab-content
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
 
-            for (i = 0; i < tabs.length; i++) {
-                tabs[i].className = tabs[i].className.replace(" active", "");
-                tabContents[i].className = tabContents[i].className.replace(" active", "");
-            }
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
 
-            event.currentTarget.className += " active";
-            document.getElementById(tabName).className += " active";
-        }
-    </script>
-
+    <footer>
+        <p>&copy; 2024 C# Academy. All rights reserved.</p>
+    </footer>
 </body>
 </html>
