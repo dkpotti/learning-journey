@@ -17,9 +17,9 @@
             background-color: #333;
             color: #fff;
             padding: 10px;
-            position: sticky; /* Make the navbar sticky */
+            position: sticky;
             top: 0;
-            z-index: 100; /* Ensure it's on top */
+            z-index: 100;
         }
 
         nav ul {
@@ -27,7 +27,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: space-around; /* Distribute links evenly */
+            justify-content: space-around;
         }
 
         nav li {
@@ -39,27 +39,66 @@
             color: #fff;
             padding: 8px 12px;
             border-radius: 5px;
-            transition: background-color 0.3s ease; /* Smooth transition */
+            transition: background-color 0.3s ease;
         }
 
         nav a:hover {
             background-color: #555;
         }
 
-        section {
-            padding: 20px;
+        /* Tab Styles */
+        .tab-container {
+            display: flex;
+            border-bottom: 1px solid #ddd;
             margin: 20px;
+        }
+
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: none;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background-color: #eee;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .tab.active {
+            background-color: #fff;
+            border-color: #ddd;
+        }
+
+        .tab-content {
+            padding: 20px;
+            margin: 0 20px 20px;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            border-top: none;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        h2 {
-            color: #0056b3;
+
+        .tab-content > div { /* Hide all content divs by default */
+            display: none;
         }
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
+
+        .tab-content > div.active { /* Show only the active content div */
+            display: block;
+            animation: fadeIn 0.5s ease-in-out; /* Fade-in animation */
         }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             nav ul {
@@ -70,6 +109,19 @@
             nav li {
                 margin: 10px 0;
             }
+            .tab-container {
+                flex-direction: column; /* Stack tabs vertically on smaller screens */
+            }
+            .tab {
+                border-radius: 5px 5px 0 0; /* Round only top corners on small screens */
+                border-bottom: 1px solid #ddd; /* Add bottom border to stacked tabs */
+                width: 100%; /* Make tabs full width */
+                text-align: center;
+            }
+            .tab:last-child { /* Remove bottom border from the last tab */
+                border-bottom: none;
+                border-radius: 0 0 5px 5px;
+            }
         }
     </style>
 </head>
@@ -77,64 +129,86 @@
 
     <nav>
         <ul>
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#basics">C# Basics</a></li>
-            <li><a href="#oop">Object-Oriented Programming</a></li>
-            <li><a href="#dotnet">.NET Framework/Core</a></li>
-            <li><a href="#advanced">Advanced Topics</a></li>
+            <li><a href="#">C# and .NET Learning Hub</a></li>
         </ul>
     </nav>
 
-    <section id="introduction">
-        <h2>Introduction to C# and .NET</h2>
-        <p>C# is a modern, object-oriented programming language developed by Microsoft. It's widely used for building various applications, including web, desktop, mobile, and game development. The .NET framework (and its cross-platform successor, .NET Core/.NET) provides the runtime environment and libraries for C# applications.</p>
-    </section>
+    <div class="tab-container">
+        <div class="tab active" onclick="openTab('introduction')">Introduction</div>
+        <div class="tab" onclick="openTab('basics')">C# Basics</div>
+        <div class="tab" onclick="openTab('oop')">Object-Oriented Programming</div>
+        <div class="tab" onclick="openTab('dotnet')">.NET Framework/.NET</div>
+        <div class="tab" onclick="openTab('advanced')">Advanced Topics</div>
+    </div>
 
-    <section id="basics">
-        <h2>C# Basics</h2>
-        <ul>
-            <li>Variables and Data Types (int, string, float, bool, etc.)</li>
-            <li>Operators (Arithmetic, Logical, Assignment)</li>
-            <li>Control Flow (if-else, for, while, switch)</li>
-            <li>Methods and Functions</li>
-            <li>Arrays and Collections (List, Dictionary)</li>
-        </ul>
-    </section>
+    <div class="tab-content">
+        <div id="introduction" class="active">
+            <h2>Introduction to C# and .NET</h2>
+            <p>C# is a modern, object-oriented programming language developed by Microsoft. It's widely used for building various applications, including web, desktop, mobile, and game development. The .NET framework (and its cross-platform successor, .NET Core/.NET) provides the runtime environment and libraries for C# applications.</p>
+        </div>
 
-    <section id="oop">
-        <h2>Object-Oriented Programming (OOP)</h2>
-        <ul>
-            <li>Classes and Objects</li>
-            <li>Inheritance</li>
-            <li>Polymorphism</li>
-            <li>Encapsulation</li>
-            <li>Abstraction</li>
-            <li>Interfaces</li>
-        </ul>
-    </section>
+        <div id="basics">
+            <h2>C# Basics</h2>
+            <ul>
+                <li>Variables and Data Types</li>
+                <li>Operators</li>
+                <li>Control Flow</li>
+                <li>Methods and Functions</li>
+                <li>Arrays and Collections</li>
+            </ul>
+        </div>
 
-    <section id="dotnet">
-        <h2>.NET Framework/.NET</h2>
-        <ul>
-            <li>Common Language Runtime (CLR)</li>
-            <li>.NET Class Library (BCL)</li>
-            <li>Namespaces</li>
-            <li>ASP.NET (Web Development)</li>
-            <li>Entity Framework (Database Access)</li>
-        </ul>
-    </section>
+        <div id="oop">
+            <h2>Object-Oriented Programming (OOP)</h2>
+            <ul>
+                <li>Classes and Objects</li>
+                <li>Inheritance</li>
+                <li>Polymorphism</li>
+                <li>Encapsulation</li>
+                <li>Abstraction</li>
+                <li>Interfaces</li>
+            </ul>
+        </div>
 
-    <section id="advanced">
-        <h2>Advanced Topics</h2>
-        <ul>
-            <li>Generics</li>
-            <li>Delegates and Events</li>
-            <li>LINQ (Language Integrated Query)</li>
-            <li>Asynchronous Programming (async/await)</li>
-            <li>Exception Handling</li>
-            <li>Unit Testing</li>
-        </ul>
-    </section>
+        <div id="dotnet">
+            <h2>.NET Framework/.NET</h2>
+            <ul>
+                <li>Common Language Runtime (CLR)</li>
+                <li>.NET Class Library (BCL)</li>
+                <li>Namespaces</li>
+                <li>ASP.NET</li>
+                <li>Entity Framework</li>
+            </ul>
+        </div>
+
+        <div id="advanced">
+            <h2>Advanced Topics</h2>
+            <ul>
+                <li>Generics</li>
+                <li>Delegates and Events</li>
+                <li>LINQ</li>
+                <li>Asynchronous Programming</li>
+                <li>Exception Handling</li>
+                <li>Unit Testing</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function openTab(tabName) {
+            let i;
+            let tabs = document.getElementsByClassName("tab");
+            let tabContents = document.getElementsByClassName("tab-content")[0].children; // Get direct children of tab-content
+
+            for (i = 0; i < tabs.length; i++) {
+                tabs[i].className = tabs[i].className.replace(" active", "");
+                tabContents[i].className = tabContents[i].className.replace(" active", "");
+            }
+
+            event.currentTarget.className += " active";
+            document.getElementById(tabName).className += " active";
+        }
+    </script>
 
 </body>
 </html>
